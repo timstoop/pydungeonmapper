@@ -12,6 +12,7 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.widget import Widget
+from kivy.properties import BooleanProperty
 
 from kivytim.layout import SmartGridLayout
 
@@ -28,6 +29,8 @@ OPPOSITE_SIDE = {
 
 
 class DMRectangle(ButtonBehavior, Widget):
+    selected = BooleanProperty(False)
+
     def __init__(self, linesize=18, **kwargs):
         super(DMRectangle, self).__init__(**kwargs)
         # Keep track of linesize to know how large we are
@@ -39,8 +42,6 @@ class DMRectangle(ButtonBehavior, Widget):
         self.wall = True
         # Keep track of wall sides
         self.empty_sides = set()
-        # Is the mouse hovering over us?
-        self.selected = False
 
     def add_empty_side(self, side):
         """Sides are defined as follows:
@@ -108,6 +109,9 @@ class DMRectangle(ButtonBehavior, Widget):
                                    x + 2, y + 2]
                 Color(1, 0, 0, 0.5)
                 Line(points=selected_points)
+        else:
+            with self.canvas.after:
+                self.canvas.after.clear()
 
     def draw_wall(self, x, y, size):
         halfsize = size / 2.0
