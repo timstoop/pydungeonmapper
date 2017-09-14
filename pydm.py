@@ -27,11 +27,13 @@ OPPOSITE_SIDE = {
     'southeast': 'northwest'
 }
 
+GRIDSIZE = 18
+
 
 class DMRectangle(ButtonBehavior, Widget):
     selected = BooleanProperty(False)
 
-    def __init__(self, linesize=18, **kwargs):
+    def __init__(self, linesize=GRIDSIZE, **kwargs):
         super(DMRectangle, self).__init__(**kwargs)
         # Keep track of linesize to know how large we are
         self.linesize = linesize
@@ -105,7 +107,7 @@ class DMRectangle(ButtonBehavior, Widget):
 
         if self.selected:
             with self.canvas.after:
-                selected_points = [x + 2, y + 2, x + size - 4, y, x + size - 4, y + size - 4, x + 2, y + size - 4,
+                selected_points = [x + 2, y + 2, x + size - 2, y + 2, x + size - 2, y + size - 2, x + 2, y + size - 2,
                                    x + 2, y + 2]
                 Color(1, 0, 0, 0.5)
                 Line(points=selected_points)
