@@ -46,10 +46,13 @@ class SmartGridLayout(GridLayout):
             return None
 
     def get_child_at(self, pos):
+        pos = self.to_widget(*pos)
         colwidth = self.width / self.cols
         rowheight = self.height / self.rows
         col = int((self.width - pos[0]) / colwidth)
         row = int(pos[1] / rowheight)
-        print(pos, col, row)
         child = col + (row * self.cols)
+        if child > len(self.children):
+            # Apparantly, we can get out of the box, fix that.
+            child = child - self.cols
         return child
