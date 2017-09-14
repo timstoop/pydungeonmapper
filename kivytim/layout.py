@@ -1,5 +1,6 @@
 from kivy.uix.gridlayout import GridLayout
 
+
 class SmartGridLayout(GridLayout):
     def get_child_index(self, child):
         return self.children.index(child)

@@ -104,7 +104,8 @@ class DMRectangle(ButtonBehavior, Widget):
 
         if self.selected:
             with self.canvas.after:
-                selected_points = [x + 2, y + 2, x + size - 4, y, x + size -4, y + size -4, x + 2, y + size - 4, x + 2, y + 2]
+                selected_points = [x + 2, y + 2, x + size - 4, y, x + size - 4, y + size - 4, x + 2, y + size - 4,
+                                   x + 2, y + 2]
                 Color(1, 0, 0, 0.5)
                 Line(points=selected_points)
 
@@ -163,7 +164,7 @@ class DMRectangle(ButtonBehavior, Widget):
                 if 6 not in self.empty_sides:
                     Line(points=[x + (2 * partsize), y, x + (2 * partsize), y + partsize])
                 if 4 not in self.empty_sides:
-                    Line(points=[x + (2 * partsize) -1, y + partsize, x + (3 * partsize) + 1, y + partsize])
+                    Line(points=[x + (2 * partsize) - 1, y + partsize, x + (3 * partsize) + 1, y + partsize])
             if 6 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(x + partsize, y), size=(rectsize, rectsize))
@@ -174,7 +175,7 @@ class DMRectangle(ButtonBehavior, Widget):
                 Rectangle(pos=(x - 1, y), size=(rectsize, rectsize))
                 Color(0, 0, 0, 1)
                 if 8 not in self.empty_sides:
-                    Line(points=[x -1, y + partsize, x + partsize, y + partsize])
+                    Line(points=[x - 1, y + partsize, x + partsize, y + partsize])
                 if 6 not in self.empty_sides:
                     Line(points=[x + partsize, y + partsize, x + partsize, y])
             if 8 in self.empty_sides:
@@ -259,14 +260,12 @@ class DMCanvas(BoxLayout):
             self.grid.children[self.last_child].set_selected(False)
             self.last_child = child
             self.canvas.ask_update()
-            print(child)
-
-
 
 
 class DungeonMapperApp(App):
     def build(self):
         return DMCanvas()
+
 
 if __name__ == "__main__":
     DungeonMapperApp().run()
