@@ -154,53 +154,63 @@ class DMRectangle(ButtonBehavior, Widget):
                 Rectangle(pos=(x1, y1), size=(partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
                 if 8 not in self.empty_sides:
-                    Line(points=[x1, y1, x2, y2])
+                    Line(points=[x1, y1, x2, y2], width=1)
                 if 2 not in self.empty_sides:
-                    Line(points=[x2, y2, x3, y3])
+                    Line(points=[x2, y2, x3, y3], width=1)
             if 2 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(x2, y2), size=(4 * partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
-                Line(points=[x2, y2, x4, y4])
+                Line(points=[x2, y2, x4, y4], width=1)
             if 3 in self.empty_sides or 2 in self.empty_sides or 4 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(x4, y4), size=(partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
                 if 4 not in self.empty_sides:
-                    Line(points=[x4, y4, x5, y5])
+                    Line(points=[x4, y4, x5, y5], width=1)
                 if 2 not in self.empty_sides:
-                    Line(points=[x4, y4, x6, y6])
+                    Line(points=[x4, y4, x6, y6], width=1)
+                    Color(0.9, 0.9, 0.9, 1)
+                    Rectangle(pos=(x4, y4), size=(partsize, partsize+1))
             if 4 in self.empty_sides:
                 Color(1, 1, 1, 1)
-                Rectangle(pos=(xd, yd), size=(partsize + 1, (4 * partsize) + 1))
+                Rectangle(pos=(xd, yd), size=(partsize + 1, 4 * partsize + 1))
                 Color(0, 0, 0, 1)
-                Line(points=[xd, yd, x4, y4])
+                Line(points=[xd, yd, x4, y4], width=1)
+                Color(0.9, 0.9, 0.9, 1)
+                Rectangle(pos=(xd, yd), size=(partsize, 4 * partsize + 1))
             if 5 in self.empty_sides or 4 in self.empty_sides or 6 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(xb, yb), size=(partsize + 1, partsize + 1))
+                Color(0.9, 0.9, 0.9, 1)
+                Rectangle(pos=(xb, yb), size=(partsize + 1, partsize))
                 Color(0, 0, 0, 1)
                 if 6 not in self.empty_sides:
-                    Line(points=[xd, yd, xb, yb])
+                    Line(points=[xd, yd, xb, yb], width=1)
                 if 4 not in self.empty_sides:
-                    Line(points=[xd, yd, xe, ye])
+                    Line(points=[xd, yd, xe, ye], width=1)
             if 6 in self.empty_sides:
                 Color(1, 1, 1, 1)
-                Rectangle(pos=(x8, y8), size=((4 * partsize) + 1, partsize + 1))
+                Rectangle(pos=(x8, y8), size=(4 * partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
-                Line(points=[xa, ya, xd, yd])
+                Line(points=[xa, ya, xd, yd], width=1)
+                Color(0.9, 0.9, 0.9, 1)
+                Rectangle(pos=(x8, y8), size=(4 * partsize + 1, partsize))
             if 7 in self.empty_sides or 6 in self.empty_sides or 8 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(x7, y7), size=(partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
-                if 8 not in self.empty_sides:
-                    Line(points=[x9, y9, xa, ya])
                 if 6 not in self.empty_sides:
-                    Line(points=[xa, ya, x8, y8])
+                    Line(points=[xa, ya, x8, y8], width=1)
+                if 8 not in self.empty_sides:
+                    Line(points=[x9, y9, xa, ya], width=1)
+                    Color(0.9, 0.9, 0.9, 1)
+                    Rectangle(pos=(x7, y7), size=(partsize + 1, partsize))
             if 8 in self.empty_sides:
                 Color(1, 1, 1, 1)
-                Rectangle(pos=(x9, y9), size=(partsize + 1, (4 * partsize) + 1))
+                Rectangle(pos=(x9, y9), size=(partsize + 1, 4 * partsize + 1))
                 Color(0, 0, 0, 1)
-                Line(points=[x2, y2, xa, ya])
+                Line(points=[x2, y2, xa, ya], width=1)
 
     def trigger_change(self, change, action, on_side):
         if change == 'wall':
