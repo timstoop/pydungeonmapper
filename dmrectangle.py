@@ -15,7 +15,7 @@ OPPOSITE_SIDE = {
     'southeast': 'northwest'
 }
 
-GRIDSIZE = 18
+GRIDSIZE = 54
 
 
 class DMRectangle(ButtonBehavior, Widget):
@@ -182,8 +182,12 @@ class DMRectangle(ButtonBehavior, Widget):
             if 5 in self.empty_sides or 4 in self.empty_sides or 6 in self.empty_sides:
                 Color(1, 1, 1, 1)
                 Rectangle(pos=(xb, yb), size=(partsize + 1, partsize + 1))
-                Color(0.9, 0.9, 0.9, 1)
-                Rectangle(pos=(xb, yb), size=(partsize + 1, partsize))
+                if not ((4 in self.empty_sides) and (6 in self.empty_sides)):
+                    if 6 not in self.empty_sides:
+                        Color(0.9, 0.9, 0.9, 1)
+                    if 4 not in self.empty_sides:
+                        Color(0.8, 0.8, 0.8, 1)
+                    Rectangle(pos=(xb, yb), size=(partsize + 1, partsize))
                 Color(0, 0, 0, 1)
                 if 6 not in self.empty_sides:
                     Line(points=[xd, yd, xb, yb], width=1)
@@ -194,7 +198,7 @@ class DMRectangle(ButtonBehavior, Widget):
                 Rectangle(pos=(x8, y8), size=(4 * partsize + 1, partsize + 1))
                 Color(0, 0, 0, 1)
                 Line(points=[xa, ya, xd, yd], width=1)
-                Color(0.9, 0.9, 0.9, 1)
+                Color(0.8, 0.8, 0.8, 1)
                 Rectangle(pos=(x8, y8), size=(4 * partsize + 1, partsize))
             if 7 in self.empty_sides or 6 in self.empty_sides or 8 in self.empty_sides:
                 Color(1, 1, 1, 1)
@@ -204,7 +208,7 @@ class DMRectangle(ButtonBehavior, Widget):
                     Line(points=[xa, ya, x8, y8], width=1)
                 if 8 not in self.empty_sides:
                     Line(points=[x9, y9, xa, ya], width=1)
-                    Color(0.9, 0.9, 0.9, 1)
+                    Color(0.8, 0.8, 0.8, 1)
                     Rectangle(pos=(x7, y7), size=(partsize + 1, partsize))
             if 8 in self.empty_sides:
                 Color(1, 1, 1, 1)
