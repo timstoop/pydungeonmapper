@@ -15,7 +15,7 @@ OPPOSITE_SIDE = {
     'southeast': 'northwest'
 }
 
-GRIDSIZE = 54
+GRIDSIZE = 18
 
 
 class DMRectangle(ButtonBehavior, Widget):
