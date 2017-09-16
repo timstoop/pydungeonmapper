@@ -21,7 +21,7 @@ class DMCanvas(BoxLayout):
 
         # Create a scrollable view first
         view = SmartScrollView(size_hint=(None, None), size=(Window.width, Window.height), effect_cls=ScrollEffect,
-                          bar_width=10)
+                          bar_width=10, scroll_x=0.5, scroll_y=0.5)
         cols = 80
         rows = 60
         self.grid = SmartGridLayout(cols=cols, rows=rows, size_hint=(None, None))
