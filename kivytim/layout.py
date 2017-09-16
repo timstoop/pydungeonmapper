@@ -1,4 +1,5 @@
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.scrollview import ScrollView
 
 
 class SmartGridLayout(GridLayout):
@@ -57,3 +58,10 @@ class SmartGridLayout(GridLayout):
             # Apparantly, we can get out of the box, fix that.
             child = child - self.cols
         return child
+
+class SmartScrollView(ScrollView):
+    def on_scroll_start(self, touch, check_children='True'):
+        if 'button' in touch.profile and touch.button == 'middle':
+            super(SmartScrollView, self).on_scroll_start(touch, check_children)
+        else:
+            print(touch.button)
