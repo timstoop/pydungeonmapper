@@ -63,5 +63,5 @@ class SmartScrollView(ScrollView):
     def on_scroll_start(self, touch, check_children='True'):
         if 'button' in touch.profile and touch.button == 'middle':
             super(SmartScrollView, self).on_scroll_start(touch, check_children)
-        else:
-            print(touch.button)
+            return check_children
+        return True
