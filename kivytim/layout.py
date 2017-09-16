@@ -64,6 +64,7 @@ class SmartScrollView(ScrollView):
         if 'button' in touch.profile and touch.button == 'middle':
             return super(SmartScrollView, self).on_touch_down(touch)
         else:
+            # This is copied from ScrollView.on_scroll_start(), needed to propagate the other clicks
             touch.apply_transform_2d(self.to_local)
             if self.dispatch_children('on_touch_down', touch):
                 return True
