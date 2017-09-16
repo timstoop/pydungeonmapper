@@ -60,8 +60,13 @@ class SmartGridLayout(GridLayout):
         return child
 
 class SmartScrollView(ScrollView):
-    def on_scroll_start(self, touch, check_children='True'):
+    def on_touch_down(self, touch):
         if 'button' in touch.profile and touch.button == 'middle':
-            super(SmartScrollView, self).on_scroll_start(touch, check_children)
-            return check_children
-        return True
+            return super(SmartScrollView, self).on_touch_down(touch)
+        else:
+            touch.push()
+            touch.apply_transform_2d(self.to_local)
+            if self.dispatch_children('on_touch_down', touch):
+                touch.pop()
+                return True
+            touch.pop()
