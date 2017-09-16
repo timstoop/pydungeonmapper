@@ -7,9 +7,8 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.effects.scroll import ScrollEffect
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.scrollview import ScrollView
 
-from kivytim.layout import SmartGridLayout
+from kivytim.layout import SmartGridLayout, SmartScrollView
 from dmrectangle import DMRectangle
 
 
@@ -21,7 +20,7 @@ class DMCanvas(BoxLayout):
         self.last_child = 0
 
         # Create a scrollable view first
-        view = ScrollView(size_hint=(None, None), size=(Window.width, Window.height), effect_cls=ScrollEffect,
+        view = SmartScrollView(size_hint=(None, None), size=(Window.width, Window.height), effect_cls=ScrollEffect,
                           bar_width=10)
         cols = 80
         rows = 60

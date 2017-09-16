@@ -255,4 +255,4 @@ class DMRectangle(ButtonBehavior, Widget):
             self.trigger_neighbours('wall', 'remove')
         self.redraw()
         self.canvas.ask_update()
-        return False
+        return True
