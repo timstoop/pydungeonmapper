@@ -135,20 +135,20 @@ class DMRectangle(ButtonBehavior, Widget):
         # |_|____|_|  7 8 b c
         #
 
-        (x1, y1) = (x - 1, y + (5 * partsize))
-        (x2, y2) = (x + partsize, y + (5 * partsize))
-        (x3, y3) = (x + partsize, y + size + 1)
+        (x1, y1) = (x - 1,              y + (5 * partsize))
+        (x2, y2) = (x + partsize,       y + (5 * partsize))
+        (x3, y3) = (x + partsize,       y + size + 1      )
         (x4, y4) = (x + (5 * partsize), y + (5 * partsize))
-        (x5, y5) = (x + size + 1, y + (5 * partsize))
-        (x6, y6) = (x + (5 * partsize), y + size + 1)
-        (x7, y7) = (x - 1, y - 1)
-        (x8, y8) = (x + partsize, y - 1)
-        (x9, y9) = (x - 1, y + partsize)
-        (xa, ya) = (x + partsize, y + partsize)
-        (xb, yb) = (x + (5 * partsize), y - 1)
-        (xc, yc) = (x + size + 1, y - 1)
-        (xd, yd) = (x + (5 * partsize), y + partsize)
-        (xe, ye) = (x + size + 1, y + partsize)
+        (x5, y5) = (x + size + 1,       y + (5 * partsize))
+        (x6, y6) = (x + (5 * partsize), y + size + 1      )
+        (x7, y7) = (x - 1,              y - 1             )
+        (x8, y8) = (x + partsize,       y - 1             )
+        (x9, y9) = (x - 1,              y + partsize      )
+        (xa, ya) = (x + partsize,       y + partsize      )
+        (xb, yb) = (x + (5 * partsize), y - 1             )
+        (xc, yc) = (x + size + 1,       y - 1             )
+        (xd, yd) = (x + (5 * partsize), y + partsize      )
+        (xe, ye) = (x + size + 1,       y + partsize      )
 
         with self.canvas:
             if 1 in self.empty_sides or 2 in self.empty_sides or 8 in self.empty_sides:
